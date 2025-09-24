@@ -218,9 +218,11 @@ class GetData:
             return
 
         
+        file_name = datetime.datetime.now().strftime("%Y-%m-%d%") + "/qlib_bin.tar.gz"
+        #file_name = "2025-09-23/qlib_bin.tar.gz"
 
-        file_name = "2025-09-23/qlib_bin.tar.gz"
-        print(file_name)
         if not self.check_dataset(file_name):
-            file_name = "2025-09-22/qlib_bin.tar.gz"
+            yesterday = datetime.today() - datetime.timedelta(days=1)
+            file_name = yesterday.strftime("%Y-%m-%d%") + "/qlib_bin.tar.gz"
+        print(file_name)
         self.download_data(file_name.lower(), target_dir, delete_old)
