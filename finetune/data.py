@@ -131,9 +131,7 @@ class GetData:
 
         #print("untar2.....")
         with tarfile.open(str(file_path.resolve()), "r:gz") as tar:
-            #tar.extractall(path=str(target_dir.resolve()))
-            for _file in tqdm(tar.namelist()):
-                tar.extract(_file, str(target_dir.resolve()))
+            tar.extractall(path=str(target_dir.resolve()))
 
     @staticmethod
     def _delete_qlib_data(file_dir: Path):
