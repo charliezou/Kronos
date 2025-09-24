@@ -208,6 +208,6 @@ class GetData:
 
         if not self.check_dataset(file_name):
             yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
-            file_name = yesterday.strftime("%Y-%m-%d%") + "/qlib_bin.tar.gz"
+            file_name = yesterday.strftime("%Y-%m-%d") + "/qlib_bin.tar.gz"
         print(file_name)
         self.download_data(file_name.lower(), target_dir, delete_old)
