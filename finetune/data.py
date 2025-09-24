@@ -105,7 +105,7 @@ class GetData:
 
         url = self.merge_remote_url(file_name)
         self.download(url=url, target_path=target_path)
-        print("untar.....")
+        #print("untar.....")
         self._untar(target_path, target_dir, delete_old)
         if self.delete_zip_file:
             target_path.unlink()
@@ -129,11 +129,11 @@ class GetData:
             GetData._delete_qlib_data(target_dir)
         logger.info(f"{file_path} unzipping......")
 
-        print("untar2.....")
+        #print("untar2.....")
         with tarfile.open(str(file_path.resolve()), "r:gz") as tar:
-            tar.extractall(path=str(target_dir.resolve()))
-            #for _file in tqdm(tar.namelist()):
-            #    tar.extract(_file, str(target_dir.resolve()))
+            #tar.extractall(path=str(target_dir.resolve()))
+            for _file in tqdm(tar.namelist()):
+                tar.extract(_file, str(target_dir.resolve()))
 
     @staticmethod
     def _delete_qlib_data(file_dir: Path):
