@@ -204,8 +204,7 @@ class GetData:
             return
 
         
-        file_name = datetime.datetime.now().strftime("%Y-%m-%d%") + "/qlib_bin.tar.gz"
-        #file_name = "2025-09-23/qlib_bin.tar.gz"
+        file_name = datetime.datetime.now().strftime("%Y-%m-%d") + "/qlib_bin.tar.gz"
 
         if not self.check_dataset(file_name):
             yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
