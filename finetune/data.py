@@ -131,23 +131,9 @@ class GetData:
 
         print("untar2.....")
         with tarfile.open(str(file_path.resolve()), "r:gz") as tar:
-            tar.extractall(path=str(target_dir.resolve())
+            tar.extractall(path=str(target_dir.resolve()))
             #for _file in tqdm(tar.namelist()):
             #    tar.extract(_file, str(target_dir.resolve()))
-
-    @staticmethod
-    def _unzip2(file_path: [Path, str], target_dir: [Path, str], delete_old: bool = True):
-        file_path = Path(file_path)
-        target_dir = Path(target_dir)
-        if delete_old:
-            logger.warning(
-                f"will delete the old qlib data directory(features, instruments, calendars, features_cache, dataset_cache): {target_dir}"
-            )
-            GetData._delete_qlib_data(target_dir)
-        logger.info(f"{file_path} unzipping......")
-        with zipfile.ZipFile(str(file_path.resolve()), "r") as zp:
-            for _file in tqdm(zp.namelist()):
-                zp.extract(_file, str(target_dir.resolve()))
 
     @staticmethod
     def _delete_qlib_data(file_dir: Path):
@@ -222,7 +208,7 @@ class GetData:
         #file_name = "2025-09-23/qlib_bin.tar.gz"
 
         if not self.check_dataset(file_name):
-            yesterday = datetime.today() - datetime.timedelta(days=1)
+            yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
             file_name = yesterday.strftime("%Y-%m-%d%") + "/qlib_bin.tar.gz"
         print(file_name)
         self.download_data(file_name.lower(), target_dir, delete_old)
