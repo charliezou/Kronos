@@ -10,7 +10,7 @@ class Config:
         # Data & Feature Parameters
         # =================================================================
         # TODO: Update this path to your Qlib data directory.
-        self.qlib_data_path = "./qlib_data/cn_data"
+        self.qlib_data_path = "./qlib_data/cn_data/qlib_bin"
         self.instrument = 'csi300'
 
         # Overall time range for data loading from Qlib.
@@ -129,6 +129,7 @@ class Config:
             return dt_benchmark[instrument]
         else:
             raise ValueError(f"Benchmark not defined for instrument: {instrument}")
+
 
 
 
