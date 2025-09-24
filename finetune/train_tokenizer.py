@@ -16,6 +16,7 @@ import comet_ml
 
 # Ensure project root is in path
 sys.path.append("../")
+sys.path.append("/content/Kronos")
 from config import Config
 from dataset import QlibDataset
 from model.kronos import KronosTokenizer
@@ -279,3 +280,4 @@ if __name__ == '__main__':
 
     config_instance = Config()
     main(config_instance.__dict__)
+
