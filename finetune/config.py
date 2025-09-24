@@ -45,7 +45,7 @@ class Config:
         # =================================================================
         self.clip = 5.0  # Clipping value for normalized data to prevent outliers.
 
-        self.epochs = 2
+        self.epochs = 1
         self.log_interval = 100  # Log training status every N batches.
         self.batch_size = 50  # Batch size per GPU.
 
@@ -129,6 +129,7 @@ class Config:
             return dt_benchmark[instrument]
         else:
             raise ValueError(f"Benchmark not defined for instrument: {instrument}")
+
 
 
 
