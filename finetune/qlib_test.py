@@ -337,7 +337,7 @@ def main():
     print(f"Loading test data from {test_data_path}...")
     with open(test_data_path, 'rb') as f:
         test_data = pickle.load(f)
-    print(test_data)
+    #print(test_data)
     # --- 3. Generate Predictions ---
     model_preds = generate_predictions(run_config, test_data)
 
@@ -359,6 +359,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
